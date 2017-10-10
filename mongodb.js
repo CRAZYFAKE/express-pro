@@ -17,7 +17,7 @@ mongoose.connect(connectionString, options, function(err) {
         console.log('[mongoose log] Error connecting to: ', + connectionString + '. ' + err)
         return process.exit(1)
     } else {
-        return console.log('[mongoose log] Successfully connected to:\n', connectionString )
+        return console.log('[mongoose log] Successfully connected to:', connectionString )
     }
 })
 
