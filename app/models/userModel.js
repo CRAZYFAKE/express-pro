@@ -18,7 +18,7 @@ UserSchema.plugin(require('./plugin/common'))
 
 const User = mongoose.model(VALUE.MODELS.USER, UserSchema)
 
-require('./hooker/update.js')(User)
+// require('./hooker/update.js')(User)
 
 Promise.promisifyAll(User)
 Promise.promisifyAll(User.prototype)

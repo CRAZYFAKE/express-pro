@@ -60,4 +60,21 @@ module.exports = exports = function (schema, options) {
         this.createdDay = date[2]
         next()
     })
+
+    /**
+     * 更新
+     */
+    schema.pre('update', function(next) {
+        /**
+         * 官网：http://mongoosejs.com/docs/api.html#query_Query-update
+         * Mongoose 4.0 supports pre update hooks via Query middleware.
+         * 
+         * Query middleware is supported for the following Model and Query functions. 
+         * In query middleware functions, this refers to the query.
+         * 
+         * 在4.0版本中的mongoose中，count、find、find、findOneAndRemove、findOneAndUpdate、update的方法中this是一个Query对象。
+         */
+        this.update({},{ $set: { updatedAt: new Date() } })
+        next()
+    })
 }
