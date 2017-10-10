@@ -8,7 +8,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mountRoutes = require('./middlewares/mountRoutes.js')
-// const resApi = require('./app/util/res_api')
+const resApi = require('./app/utils/res_api')
 
 const app = express();
 
@@ -23,6 +23,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(resApi)
 
 mountRoutes(app, __dirname + '/app/routes');
 

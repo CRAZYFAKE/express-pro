@@ -1,14 +1,9 @@
-var app = require('express');
-var router = app.Router();
+var app = require('express')
+var router = app.Router()
+const userController = require('../controllers/userController.js')
 
-router.get('/a', (req, res, next) => {
-    res.json('GET /users/a')
-});
+router.post('/register', userController.api.register)
 
-router.get('/haha', (req, res, next) => {
-    res.json({
-        haha: 'gepi'
-    })
-})
+router.post('/update', userController.api.update)
 
-module.exports = router;
+module.exports = router
